@@ -1,0 +1,21 @@
+class CuentaBancaria:
+    def __init__(self, titular: str, saldo_inicial: float):
+        self.titular: str = titular
+        self.saldo: float = saldo_inicial
+    
+    def depositar(self, cantidad: float)->None:
+        self.saldo += cantidad
+        print(f"Deposito exitoso. Nuevo saldo de {self.titular}: ${self.saldo}")
+    
+    def reitrar(self, canitdad: float)->None:
+        if canitdad > self.saldo:
+            print(f"Error: {self.titular} no tiene fondos suficientes.")
+        else:
+            self.saldo -= canitdad
+            print(f"Retiro exitoso. Saldo restante: ${self.saldo}")
+
+cuenta_ana = CuentaBancaria("Ana  Lopes", 50000.0)
+
+cuenta_ana.depositar(20000.0)
+cuenta_ana.reitrar(100000.0)
+cuenta_ana.reitrar(15000.0)
